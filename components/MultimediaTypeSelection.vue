@@ -19,18 +19,18 @@
         <span class="ms-2 badge bg-danger">Past Request Deadline</span>
       </div>
 
-      <!-- Icon Grid -->
-      <div class="row g-3">
+      <!-- Custom Grid Layout -->
+      <div class="d-flex flex-wrap justify-content-center gap-3">
         <div
-          v-for="type in mediaTypes"
+          v-for="(type, index) in mediaTypes"
           :key="type.label"
-          class="col-6 col-md-3 text-center"
+          :class="getItemClass(index)"
         >
           <button
             class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center py-3"
           >
             <i :class="type.icon" class="mb-2" style="font-size: 1.5rem"></i>
-            <span class="fw-semibold small">{{ type.label }}</span>
+            <span class="fw-semibold small text-center">{{ type.label }}</span>
           </button>
         </div>
       </div>
@@ -54,4 +54,22 @@ const mediaTypes = [
   { label: "H5P", icon: "bi-cube" },
   { label: "Timeline", icon: "bi-calendar3" },
 ];
+
+// Custom class to handle 3/5/5 layout
+function getItemClass(index) {
+  if (index < 3) return "flex-basis-25";
+  return "flex-basis-17";
+}
 </script>
+
+<style scoped>
+.flex-basis-25 {
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+
+.flex-basis-17 {
+  flex: 0 0 17%;
+  max-width: 17%;
+}
+</style>
