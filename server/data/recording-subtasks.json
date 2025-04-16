@@ -1,0 +1,14 @@
+[
+  { "name": "Pre Production:", "is_rendered_as_separator": true },
+  { "name": "Post-Production:", "is_rendered_as_separator": true },
+  { "name": "Wrap Up:", "is_rendered_as_separator": true },
+  { "name": "Upload to captioning YouTube account" },
+  { "name": "Copy edit task to course captioning task" },
+  { "name": "Upload video(s) to Kaltura" },
+  { "name": "Add to repo" },
+  { "name": "Double check links in repo" },
+  {
+    "name": "Clear Google drive of this project (make sure copies are on shared drive)"
+  },
+  { "name": "Post links [assign to ID once lectures are done]" }
+]

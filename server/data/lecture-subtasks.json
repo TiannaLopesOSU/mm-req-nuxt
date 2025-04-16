@@ -1,0 +1,25 @@
+[
+  { "name": "Pre Production:", "is_rendered_as_separator": true },
+  { "name": "Contact instructor for lecture orientation (If needed) - CC ID" },
+  { "name": "Training Scheduled - CC ID" },
+  { "name": "DIY Sample Approved" },
+  { "name": "Contact for Schedule appointment" },
+  { "name": "Recording appointment(s) Scheduled" },
+  { "name": "Post-Production:", "is_rendered_as_separator": true },
+  { "name": "33%", "is_rendered_as_separator": true },
+  { "name": "66%", "is_rendered_as_separator": true },
+  { "name": "100%", "is_rendered_as_separator": true },
+  { "name": "Late content:", "is_rendered_as_separator": true },
+  { "name": "Wrap Up Reminders:", "is_rendered_as_separator": true },
+  { "name": "Upload video(s) to Kaltura" },
+  { "name": "Change owner to Ecampus, add co-pubs (ID, instructor)" },
+  { "name": "Check thumbnail" },
+  { "name": "Add to repo" },
+  { "name": "Upload to captioning YouTube account" },
+  { "name": "Copy edit task to course captioning task" },
+  { "name": "Double check links in repo" },
+  {
+    "name": "Upload project files to Share Drive (archival)"
+  },
+  { "name": "Delete recordings from Term Folder on Google Drive" }
+]

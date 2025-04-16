@@ -1,0 +1,23 @@
+[
+  { "name": "Pre Production:", "is_rendered_as_separator": true },
+  { "name": "Contact instructor - CC ID" },
+  { "name": "Pre production meeting or phone call - CC ID" },
+  { "name": "DIY Sample Approved" },
+  { "name": "Schedule shoot" },
+  { "name": "Production:", "is_rendered_as_separator": true },
+  { "name": "Shoot date(s)" },
+  { "name": "Ingest" },
+  { "name": "Name your files on card before transfer" },
+  { "name": "Post Production:", "is_rendered_as_separator": true },
+  { "name": "Add to frame.io (not for intros or overviews)" },
+  { "name": "Add script to Google Drive" },
+  { "name": "Under Review:", "is_rendered_as_separator": true },
+  { "name": "Approved:", "is_rendered_as_separator": true },
+  { "name": "Upload and Captioning:", "is_rendered_as_separator": true },
+  { "name": "Upload to captioning YouTube account" },
+  { "name": "Copy edit task to course captioning task" },
+  { "name": "Upload video(s) to Kaltura" },
+  { "name": "Check thumbnail" },
+  { "name": "Add to repo" },
+  { "name": "Post links [task to ID when link is ready]" }
+]

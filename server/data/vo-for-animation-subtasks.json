@@ -1,0 +1,9 @@
+[
+  { "name": "Pre Production:", "is_rendered_as_separator": true },
+  { "name": "Contact instructor with Studio Scheduler link" },
+  { "name": "Recording appointment(s) Scheduled" },
+  { "name": "Post-Production:", "is_rendered_as_separator": true },
+  { "name": "Edit and Clean Up VO if needed" },
+  { "name": "Wrap Up:", "is_rendered_as_separator": true },
+  { "name": "Send VO to animator" }
+]
