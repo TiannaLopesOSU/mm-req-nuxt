@@ -1,5 +1,3 @@
 # .gitignore
 .env
-*.azure
-*.pem
-config/*.json
+*.node_modules
