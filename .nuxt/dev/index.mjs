@@ -1,11 +1,9 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, getRequestURL, getResponseHeader, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, createError, getRouterParam, readBody, getQuery as getQuery$1, sendError, getResponseStatusText } from 'file:///Users/lopesti/WebTeam/mm-req-nuxt/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, getRequestURL, getResponseHeader, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, createError, getRouterParam, readBody, getQuery as getQuery$1, getResponseStatusText } from 'file:///Users/lopesti/WebTeam/mm-req-nuxt/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import asana from 'asana';
-import AWS from 'aws-sdk';
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/lopesti/WebTeam/mm-req-nuxt/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import destr from 'file:///Users/lopesti/WebTeam/mm-req-nuxt/node_modules/destr/dist/index.mjs';
 import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, joinRelativeURL } from 'file:///Users/lopesti/WebTeam/mm-req-nuxt/node_modules/ufo/dist/index.mjs';
@@ -1109,7 +1107,7 @@ const plugins = [
 _SPZgkeAnBDfMvq61FhLEXtHRTHcCCkB2J2vemCt9n80
 ];
 
-const _lazy_tG9DWt = () => Promise.resolve().then(function () { return createMultimediaRequest_post$1; });
+const _lazy_tG9DWt = () => Promise.resolve().then(function () { return createMultimediaRequest_post; });
 const _lazy_G_xesO = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
@@ -1427,134 +1425,8 @@ const errorDev = /*#__PURE__*/Object.freeze({
   template: template$1
 });
 
-const client$1 = asana.Client.create().useAccessToken(process.env.ASANA_ACCESS_TOKEN);
-const invalidDuplicateRequest = async (content) => {
-  const { name, mediaType, course_code_number } = content;
-  const disallowedTypes = ["Lecture", "Video"];
-  if (course_code_number === "Internal Request") return null;
-  if (!disallowedTypes.includes(mediaType)) return null;
-  const response = await client$1.tasks.searchTasksForWorkspace(process.env.ASANA_WORKSPACE, {
-    text: name,
-    projects: [process.env.ASANA_CDT_MULTIMEDIA_INTAKE]
-  });
-  return response.data.filter((task) => task.name === name) || null;
-};
-
-const sns = new AWS.SNS();
-const publishSNSEvent = async (message, subject, topicARN) => {
-  const params = {
-    Message: message,
-    Subject: subject,
-    TopicArn: topicARN
-  };
-  console.log("Publishing SNS Event:", params);
-  return await sns.publish(params).promise();
-};
-
-const client = asana.Client.create().useAccessToken(process.env.ASANA_ACCESS_TOKEN);
-async function createMultimediaRequestHandler(content) {
-  const task1 = await createTask(content);
-  if (content.mediaType === "Animation") {
-    content.mediaType = "VO_Animation";
-    content.name = `${content.name} - VO`;
-    const task2 = await createTask(content);
-    await publishSNSEvent(
-      JSON.stringify([task2.gid, task1.gid]),
-      "Dependent Request",
-      `arn:aws:sns:us-west-2:709088102883:${process.env.ANIMATION_TASK_DEPENDENT}`
-    );
-    await publishSNSEvent(
-      JSON.stringify([task1.gid, task2.gid]),
-      "Dependencies Request",
-      `arn:aws:sns:us-west-2:709088102883:${process.env.ANIMATION_TASK_DEPENDENCY}`
-    );
-  }
-  return task1;
-}
-async function createTask(content) {
-  var _a, _b, _c;
-  const duplicates = await invalidDuplicateRequest(content);
-  if (duplicates) {
-    throw createError({ statusCode: 409, statusMessage: "Duplicate multimedia request", data: duplicates });
-  }
-  const follower = ((_b = (_a = content.instructionalDesignerCustomField) == null ? void 0 : _a[0]) == null ? void 0 : _b.gid) === "1204007893854244" ? [] : content.instructionalDesignerCustomField || [];
-  if (content.mediaType === "Animation") {
-    follower.push({ gid: "941698411857946", resource_type: "user", name: "James Roberts" });
-    content.instructionalDesignerCustomField = (_c = content.instructionalDesignerCustomField) == null ? void 0 : _c.filter(
-      (d) => d.gid !== "941698411857946"
-    );
-  }
-  const custom_fields = generateCustomFields(content);
-  const task = await client.tasks.create({
-    name: content.name,
-    followers: follower,
-    custom_fields,
-    projects: [process.env.ASANA_PROJECT],
-    html_notes: content.notes,
-    due_on: content.due_date || void 0
-  });
-  const eventText = JSON.stringify(task);
-  if (content.mediaType === "Video") {
-    await publishSNSEvent(eventText, "Video Tasks Request", `arn:aws:sns:us-west-2:709088102883:${process.env.VIDEO_TASK_TOPIC}`);
-  }
-  if (content.mediaType === "Lecture") {
-    await publishSNSEvent(eventText, "Lecture Tasks Request", `arn:aws:sns:us-west-2:709088102883:${process.env.LECTURE_TASK_TOPIC}`);
-  }
-  if (content.mediaType === "Recording") {
-    await publishSNSEvent(eventText, "Recording Tasks Request", `arn:aws:sns:us-west-2:709088102883:${process.env.RECORDING_TASK_TOPIC}`);
-  }
-  if (content.mediaType === "VO_Animation") {
-    await publishSNSEvent(eventText, "VO_Animation Tasks Request", `arn:aws:sns:us-west-2:709088102883:${process.env.VO_ANIMATION_TASK_TOPIC}`);
-  }
-  return task;
-}
-function generateCustomFields(content) {
-  var _a, _b;
-  const mediaTypeMap = {
-    Timeline: "1208129618115736",
-    Glossary: "1208129618115744",
-    Web: "1208129531079122",
-    H5P: "1208129532629453",
-    Internal: "1208129532070562",
-    Reflect: "1208129617669941",
-    Lecture: "1208264378820118",
-    Video: "1208264378820119",
-    DIY: "1208264378820120",
-    Animation: "1208264378820121",
-    VO_Animation: "1208264378820118",
-    Graphics: "1208264378820122",
-    Support: "1208264378820123",
-    Consultation: "1208264689186435"
-  };
-  const mediaTypeAsanaId = mediaTypeMap[content.mediaType] || mediaTypeMap["Internal"];
-  const fields = {
-    "1208129345404332": "1208129614077492",
-    "1208129347619225": content.deliveryTerm,
-    "1208129386660985": content.quantity || void 0,
-    "1208129347619233": mediaTypeAsanaId,
-    "1208129301417200": content.needed_by || void 0,
-    "1208129300624885": content.instructor
-  };
-  if (((_b = (_a = content.instructionalDesignerCustomField) == null ? void 0 : _a[0]) == null ? void 0 : _b.gid) !== "1204007893854244") {
-    fields["1208129387765521"] = content.instructionalDesignerCustomField;
-  }
-  return fields;
-}
-
-const createMultimediaRequest_post = defineEventHandler(async (event) => {
-  try {
-    const body = await readBody(event);
-    const result = await createMultimediaRequestHandler(body);
-    return result;
-  } catch (err) {
-    console.error("API Error:", err);
-    return sendError(event, createError({ statusCode: 500, statusMessage: "Failed to create request" }));
-  }
-});
-
-const createMultimediaRequest_post$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  default: createMultimediaRequest_post
+const createMultimediaRequest_post = /*#__PURE__*/Object.freeze({
+  __proto__: null
 });
 
 const VueResolver = (_, value) => {

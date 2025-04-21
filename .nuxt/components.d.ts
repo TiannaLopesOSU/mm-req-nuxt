@@ -15,6 +15,19 @@ interface _GlobalComponents {
       'CheckboxField': typeof import("../components/CheckboxField.vue")['default']
     'DropdownField': typeof import("../components/DropdownField.vue")['default']
     'FormField': typeof import("../components/FormField.vue")['default']
+    'MediaTypesAnimationForm': typeof import("../components/MediaTypes/AnimationForm.vue")['default']
+    'MediaTypesConsultationForm': typeof import("../components/MediaTypes/ConsultationForm.vue")['default']
+    'MediaTypesDIYForm': typeof import("../components/MediaTypes/DIYForm.vue")['default']
+    'MediaTypesDVDRipForm': typeof import("../components/MediaTypes/DVDRipForm.vue")['default']
+    'MediaTypesGlossaryForm': typeof import("../components/MediaTypes/GlossaryForm.vue")['default']
+    'MediaTypesGraphicsForm': typeof import("../components/MediaTypes/GraphicsForm.vue")['default']
+    'MediaTypesH5PForm': typeof import("../components/MediaTypes/H5PForm.vue")['default']
+    'MediaTypesLectureForm': typeof import("../components/MediaTypes/LectureForm.vue")['default']
+    'MediaTypesOneTermDevelopmentForm': typeof import("../components/MediaTypes/OneTermDevelopmentForm.vue")['default']
+    'MediaTypesSupportForm': typeof import("../components/MediaTypes/SupportForm.vue")['default']
+    'MediaTypesTimelineForm': typeof import("../components/MediaTypes/TimelineForm.vue")['default']
+    'MediaTypesVideoForm': typeof import("../components/MediaTypes/VideoForm.vue")['default']
+    'MediaTypesWebForm': typeof import("../components/MediaTypes/WebForm.vue")['default']
     'MultimediaTypeSelection': typeof import("../components/MultimediaTypeSelection.vue")['default']
     'Navbar': typeof import("../components/Navbar.vue")['default']
     'TextAreaField': typeof import("../components/TextAreaField.vue")['default']
@@ -44,6 +57,19 @@ interface _GlobalComponents {
       'LazyCheckboxField': LazyComponent<typeof import("../components/CheckboxField.vue")['default']>
     'LazyDropdownField': LazyComponent<typeof import("../components/DropdownField.vue")['default']>
     'LazyFormField': LazyComponent<typeof import("../components/FormField.vue")['default']>
+    'LazyMediaTypesAnimationForm': LazyComponent<typeof import("../components/MediaTypes/AnimationForm.vue")['default']>
+    'LazyMediaTypesConsultationForm': LazyComponent<typeof import("../components/MediaTypes/ConsultationForm.vue")['default']>
+    'LazyMediaTypesDIYForm': LazyComponent<typeof import("../components/MediaTypes/DIYForm.vue")['default']>
+    'LazyMediaTypesDVDRipForm': LazyComponent<typeof import("../components/MediaTypes/DVDRipForm.vue")['default']>
+    'LazyMediaTypesGlossaryForm': LazyComponent<typeof import("../components/MediaTypes/GlossaryForm.vue")['default']>
+    'LazyMediaTypesGraphicsForm': LazyComponent<typeof import("../components/MediaTypes/GraphicsForm.vue")['default']>
+    'LazyMediaTypesH5PForm': LazyComponent<typeof import("../components/MediaTypes/H5PForm.vue")['default']>
+    'LazyMediaTypesLectureForm': LazyComponent<typeof import("../components/MediaTypes/LectureForm.vue")['default']>
+    'LazyMediaTypesOneTermDevelopmentForm': LazyComponent<typeof import("../components/MediaTypes/OneTermDevelopmentForm.vue")['default']>
+    'LazyMediaTypesSupportForm': LazyComponent<typeof import("../components/MediaTypes/SupportForm.vue")['default']>
+    'LazyMediaTypesTimelineForm': LazyComponent<typeof import("../components/MediaTypes/TimelineForm.vue")['default']>
+    'LazyMediaTypesVideoForm': LazyComponent<typeof import("../components/MediaTypes/VideoForm.vue")['default']>
+    'LazyMediaTypesWebForm': LazyComponent<typeof import("../components/MediaTypes/WebForm.vue")['default']>
     'LazyMultimediaTypeSelection': LazyComponent<typeof import("../components/MultimediaTypeSelection.vue")['default']>
     'LazyNavbar': LazyComponent<typeof import("../components/Navbar.vue")['default']>
     'LazyTextAreaField': LazyComponent<typeof import("../components/TextAreaField.vue")['default']>
@@ -79,6 +105,19 @@ declare module 'vue' {
 export const CheckboxField: typeof import("../components/CheckboxField.vue")['default']
 export const DropdownField: typeof import("../components/DropdownField.vue")['default']
 export const FormField: typeof import("../components/FormField.vue")['default']
+export const MediaTypesAnimationForm: typeof import("../components/MediaTypes/AnimationForm.vue")['default']
+export const MediaTypesConsultationForm: typeof import("../components/MediaTypes/ConsultationForm.vue")['default']
+export const MediaTypesDIYForm: typeof import("../components/MediaTypes/DIYForm.vue")['default']
+export const MediaTypesDVDRipForm: typeof import("../components/MediaTypes/DVDRipForm.vue")['default']
+export const MediaTypesGlossaryForm: typeof import("../components/MediaTypes/GlossaryForm.vue")['default']
+export const MediaTypesGraphicsForm: typeof import("../components/MediaTypes/GraphicsForm.vue")['default']
+export const MediaTypesH5PForm: typeof import("../components/MediaTypes/H5PForm.vue")['default']
+export const MediaTypesLectureForm: typeof import("../components/MediaTypes/LectureForm.vue")['default']
+export const MediaTypesOneTermDevelopmentForm: typeof import("../components/MediaTypes/OneTermDevelopmentForm.vue")['default']
+export const MediaTypesSupportForm: typeof import("../components/MediaTypes/SupportForm.vue")['default']
+export const MediaTypesTimelineForm: typeof import("../components/MediaTypes/TimelineForm.vue")['default']
+export const MediaTypesVideoForm: typeof import("../components/MediaTypes/VideoForm.vue")['default']
+export const MediaTypesWebForm: typeof import("../components/MediaTypes/WebForm.vue")['default']
 export const MultimediaTypeSelection: typeof import("../components/MultimediaTypeSelection.vue")['default']
 export const Navbar: typeof import("../components/Navbar.vue")['default']
 export const TextAreaField: typeof import("../components/TextAreaField.vue")['default']
@@ -108,6 +147,19 @@ export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/
 export const LazyCheckboxField: LazyComponent<typeof import("../components/CheckboxField.vue")['default']>
 export const LazyDropdownField: LazyComponent<typeof import("../components/DropdownField.vue")['default']>
 export const LazyFormField: LazyComponent<typeof import("../components/FormField.vue")['default']>
+export const LazyMediaTypesAnimationForm: LazyComponent<typeof import("../components/MediaTypes/AnimationForm.vue")['default']>
+export const LazyMediaTypesConsultationForm: LazyComponent<typeof import("../components/MediaTypes/ConsultationForm.vue")['default']>
+export const LazyMediaTypesDIYForm: LazyComponent<typeof import("../components/MediaTypes/DIYForm.vue")['default']>
+export const LazyMediaTypesDVDRipForm: LazyComponent<typeof import("../components/MediaTypes/DVDRipForm.vue")['default']>
+export const LazyMediaTypesGlossaryForm: LazyComponent<typeof import("../components/MediaTypes/GlossaryForm.vue")['default']>
+export const LazyMediaTypesGraphicsForm: LazyComponent<typeof import("../components/MediaTypes/GraphicsForm.vue")['default']>
+export const LazyMediaTypesH5PForm: LazyComponent<typeof import("../components/MediaTypes/H5PForm.vue")['default']>
+export const LazyMediaTypesLectureForm: LazyComponent<typeof import("../components/MediaTypes/LectureForm.vue")['default']>
+export const LazyMediaTypesOneTermDevelopmentForm: LazyComponent<typeof import("../components/MediaTypes/OneTermDevelopmentForm.vue")['default']>
+export const LazyMediaTypesSupportForm: LazyComponent<typeof import("../components/MediaTypes/SupportForm.vue")['default']>
+export const LazyMediaTypesTimelineForm: LazyComponent<typeof import("../components/MediaTypes/TimelineForm.vue")['default']>
+export const LazyMediaTypesVideoForm: LazyComponent<typeof import("../components/MediaTypes/VideoForm.vue")['default']>
+export const LazyMediaTypesWebForm: LazyComponent<typeof import("../components/MediaTypes/WebForm.vue")['default']>
 export const LazyMultimediaTypeSelection: LazyComponent<typeof import("../components/MultimediaTypeSelection.vue")['default']>
 export const LazyNavbar: LazyComponent<typeof import("../components/Navbar.vue")['default']>
 export const LazyTextAreaField: LazyComponent<typeof import("../components/TextAreaField.vue")['default']>

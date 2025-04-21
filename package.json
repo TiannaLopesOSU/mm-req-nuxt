@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "asana": "^3.0.16",
     "bootstrap": "^5.3.5",
     "bootstrap-icons": "^1.11.3",
     "nuxt": "^3.16.2",
