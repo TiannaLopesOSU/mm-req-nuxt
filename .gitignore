@@ -1,0 +1,5 @@
+# .gitignore
+.env
+*.azure
+*.pem
+config/*.json
